@@ -20,4 +20,22 @@ function useInterval(callback, delay) {
   }, [delay]);
 }
 
-export default useInterval;
+const useKeydown = (callback) => {
+  React.useEffect(() => {
+    window.addEventListener('keydown', callback)
+    return () => {
+      window.removeEventListener('keydown', callback)
+    }
+  })
+}
+
+const useDocumentTitle = (title, fallbackTitle) => {
+  React.useEffect(() => {
+    document.title = title;
+    return () => {
+      document.title = fallbackTitle
+    }
+  }, [title])
+}
+
+export { useInterval, useKeydown, useDocumentTitle };
