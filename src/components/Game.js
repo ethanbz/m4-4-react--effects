@@ -22,7 +22,6 @@ const Game = () => {
   const handleClick = (item) => {
     if (item === null || item.code === 'Space') {
       if (item !== null && item.repeat) {return}
-      if (item !== null) document.getElementById('cookie').style.transform = 'scale(1.2)'
       counter[3] === 0 ? setNumCookies(numCookies+1) : setNumCookies(numCookies + counter[3]*items[3].value)
     } else if (numCookies >= item.cost) {
       setCounter(counter.map((count, index) => index === items.indexOf(item) ? count+1 : count))
